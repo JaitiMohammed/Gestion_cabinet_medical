@@ -1,13 +1,18 @@
-package classes;
+package entities;
 
-public class creneaux {
+import java.io.Serializable;
+
+public class creneaux implements Serializable {
     private  int id ;
     private int version;
     private int hdebut;
     private int mdebut;
     private int hfin;
     private int mfin;
-    private medecins medecin;
+    private medecins medecin; //
+    private clients client; //
+
+
 
     public creneaux() {
     }

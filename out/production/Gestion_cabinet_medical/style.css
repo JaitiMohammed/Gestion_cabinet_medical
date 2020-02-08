@@ -1,0 +1,11 @@
+.root {
+    -fx-background-color: #1e1e1e;
+}
+.button{
+    -fx-padding: 12px ;
+    -fx-background-color: red;
+}
+.label {
+    -fx-font-size: 16px;
+    -fx-padding: 12px;
+}

@@ -1,19 +1,20 @@
-package classes;
+package entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class rv {
+public class rv implements Serializable {
     private int id;
     private Date jour;
-    private creneaux creenaux;
+    private creneaux creneaux;
     private clients client;
 
     public rv() {
     }
 
-    public rv(Date jour, creneaux creenaux, clients client) {
+    public rv(Date jour, creneaux creneaux, clients client) {
         this.jour = jour;
-        this.creenaux = creenaux;
+        this.creneaux = creneaux;
         this.client = client;
     }
 
@@ -34,11 +35,11 @@ public class rv {
     }
 
     public creneaux getCreenaux() {
-        return creenaux;
+        return creneaux;
     }
 
-    public void setCreenaux(creneaux creenaux) {
-        this.creenaux = creenaux;
+    public void setCreneaux(creneaux creneaux) {
+        this.creneaux = creneaux;
     }
 
     public clients getClient() {

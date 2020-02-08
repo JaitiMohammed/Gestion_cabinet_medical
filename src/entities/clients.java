@@ -1,9 +1,11 @@
-package classes;
+package entities;
 
-public class clients {
+import java.io.Serializable;
+
+public class clients implements Serializable {
     
     private  int id ;
-    private  int version;
+    private  int version; // useless
     private  String titre;
     private  String nom;
     private  String prenom;
@@ -11,11 +13,10 @@ public class clients {
     public clients() {
     }
 
-    public clients(int version, String titre, String nom, String prenom) {
-        this.version = version;
+    public clients(String nom, String prenom, String titre) {
+        this.nom=nom;
+        this.prenom=prenom;
         this.titre = titre;
-        this.nom = nom;
-        this.prenom = prenom;
     }
 
     public int getId() {
@@ -56,5 +57,14 @@ public class clients {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
+    }
+
+
+    public void afficherClient(){
+        System.out.println("ID :" + getId());
+        System.out.println("TITRE :" + getTitre());
+        System.out.println("NOM :" + getNom());
+        System.out.println("PRENOM :" + getPrenom());
+
     }
 }

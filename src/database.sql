@@ -1,0 +1,36 @@
+create  table clients (
+    id INT(20) PRIMARY KEY NOT NULL  AUTO_INCREMENT,
+    NOM VARCHAR(30) NOT NULL ,
+    PRENOM VARCHAR(30) NOT NULL,
+    TITRE VARCHAR(5) NOT NULL
+);
+create table medecins (
+    ID INT(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    VERSION INT(11) NOT NULL ,
+    TITRE VARCHAR(5) NOT NULL ,
+    NOM VARCHAR(30) NOT NULL ,
+    PRENOM VARCHAR(30) NOT NULL
+);
+create table creneaux (
+          ID INT(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+          VERSION INT(11) NOT NULL ,
+          HDBEUT INT(11) NOT NULL ,
+          MDEBUT INT(11) NOT NULL ,
+          HFIN INT(11) NOT NULL ,
+          MFIN INT(11) NOT NULL ,
+          ID_MEDECIN INT (11) NOT NULL ,
+          FOREIGN KEY (ID_MEDECIN) REFERENCES medecins (ID)
+);
+create  table  rv (
+        ID INT(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        JOUR DATE NOT NULL ,
+        ID_CLIENT INT (11) NOT NULL ,
+        ID_CRENEAU INT(11) NOT NULL ,
+        FOREIGN KEY  (ID_CLIENT) REFERENCES  clients (ID),
+        FOREIGN KEY (ID_CRENEAU) references creneaux (ID)
+);
+
+---
+INSERT INTO clients (NOM, PRENOM, TITRE) VALUES ('SALIM','RABIE','TEST');
+INSERT INTO clients (NOM, PRENOM, TITRE) VALUES ('ALI','OUSSAM','TEST2');
+SELECT * FROM clients;

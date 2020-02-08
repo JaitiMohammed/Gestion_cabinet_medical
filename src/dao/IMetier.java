@@ -1,23 +1,30 @@
 package dao;
 
-import classes.clients;
-import classes.medecins;
-import classes.rv;
+import entities.clients;
+import entities.creneaux;
+import entities.medecins;
+import entities.rv;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface IMetier {
     //
-    public void addClient(clients c);
-    public List<clients> listClients();
-    public void deleteClient(clients c);
+    public List<clients> ListClients() throws SQLException;
+    public List<medecins> ListMedecins() throws SQLException;
+    public List<creneaux> ListCreneaux();
+    public List<rv> ListRendezVous();
+    public clients retrouverClient(int id_client);
+    public rv retrouerRv(int id_rv);
+    public medecins retrouverMedecins(int id_med);
+    public creneaux retrouverCreneaux(int id_cr);
+    public void addRendezVous(rv rendezVous);
+    public void deleteRendezVous(rv rendezVous);
 
-    public void addRv(rv r);
-    public  void deleteRv(rv r);
-    public  List<rv> listRv();
+    public  void addClient(clients c);
+    public void deleteClient(int id_client);
+    public  void addMedecin(medecins m);
+    public void deletMedecin(int id_medecin);
 
-    public void addMedecin(medecins m);
-    public  void deleteMedecin(medecins m);
-    public  List<medecins> listmedecin();
 
 }
