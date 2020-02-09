@@ -12,7 +12,7 @@ public interface IMetier {
     //
     public List<clients> ListClients() throws SQLException;
     public List<medecins> ListMedecins() throws SQLException;
-    public List<creneaux> ListCreneaux();
+    public List<creneaux> ListCreneaux() throws Exception;
     public List<rv> ListRendezVous();
     public clients retrouverClient(int id_client);
     public rv retrouerRv(int id_rv);

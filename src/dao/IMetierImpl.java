@@ -15,24 +15,28 @@ import java.util.List;
 public class IMetierImpl implements  IMetier {
 
     @Override
-    public List<clients> ListClients() throws SQLException {
+    public List<clients> ListClients(){
         Connection conn = ConnectionToDB.getConnection();
         List<clients> clients = new ArrayList<>();
+        try {
+            String query = "SELECT *  FROM clients";
+            PreparedStatement pr = conn.prepareStatement(query);
+            ResultSet rs = pr.executeQuery();
 
-        String query = "SELECT *  FROM clients";
-        PreparedStatement pr = conn.prepareStatement(query);
-        ResultSet rs = pr.executeQuery();
+            while (rs.next()){
+                clients client = new clients();
+                client.setId(rs.getInt("ID"));
+                client.setTitre(rs.getString("TITRE"));
+                client.setNom(rs.getString("NOM"));
+                client.setPrenom(rs.getString("PRENOM"));
+                clients.add(client);
 
-        while (rs.next()){
-            clients client = new clients();
-            client.setId(rs.getInt("ID"));
-            client.setTitre(rs.getString("TITRE"));
-            client.setNom(rs.getString("NOM"));
-            client.setPrenom(rs.getString("PRENOM"));
-            clients.add(client);
-
+            }
+            pr.close();
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        pr.close();
+
         return clients;
     }
 
