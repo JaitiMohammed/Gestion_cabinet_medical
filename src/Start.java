@@ -23,17 +23,15 @@ public class Start {
         metier.addMedecin(m);
         */
 
-        clients cc = new clients("SAID ","DARI","Mr");
+        //clients cc = new clients("SAID ","DARI","Mr");
 
-        metier.addClient(cc);
+        //metier.addClient(cc);
         List<clients> c = metier.getAllClients();
-        List<medecins> m = metier.getAllMedecins();
+       // List<medecins> m = metier.getAllMedecins();
         for (clients cl : c){
             System.out.println(cl.getNom());
         }
-        for(medecins md : m){
-            System.out.println(md.getNom());
-        }
+
 
     }
 }

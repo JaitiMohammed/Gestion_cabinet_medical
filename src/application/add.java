@@ -160,25 +160,31 @@ public class add {
 
     private static void EventAddClient(javafx.event.ActionEvent e) throws FileNotFoundException {
         if(e.getSource()== submit){
-            IMetier metier = new IMetierImpl();
-            clients c = new clients(nameInput.getText(),prenomInput.getText(),titreInput.getText());
-            metier.addClient(c);
-            ConfirmBox.ok();
-            nameInput.clear();
-            prenomInput.clear();
-            titreInput.clear();
+            if(nameInput.getText() != null && prenomInput.getText() != null &&
+                    titreInput.getText() != null) {
+                IMetier metier = new IMetierImpl();
+                clients c = new clients(nameInput.getText(), prenomInput.getText(), titreInput.getText());
+                metier.addClient(c);
+                ConfirmBox.ok();
+                nameInput.clear();
+                prenomInput.clear();
+                titreInput.clear();
+            }
         }
     }
 
     private static void EventAddMedcin(javafx.event.ActionEvent e) throws FileNotFoundException, SQLException {
         if(e.getSource()== submit){
-            IMetier metier = new IMetierImpl();
-            medecins m = new medecins(nameInput.getText(),prenomInput.getText(),titreInput.getText());
-            metier.addMedecin(m);
-            ConfirmBox.ok();
-            nameInput.clear();
-            prenomInput.clear();
-            titreInput.clear();
+            if(nameInput.getText() != null && prenomInput.getText() != null &&
+            titreInput.getText() != null){
+                IMetier metier = new IMetierImpl();
+                medecins m = new medecins(nameInput.getText(),prenomInput.getText(),titreInput.getText());
+                metier.addMedecin(m);
+                ConfirmBox.ok();
+                nameInput.clear();
+                prenomInput.clear();
+                titreInput.clear();
+            }
         }
     }
 

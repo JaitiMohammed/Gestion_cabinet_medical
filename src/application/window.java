@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,6 +27,7 @@ import javafx.scene.control.TextField;
 public class window extends Application {
     Stage window ;
     private static add ajouter;
+    private  static  table table;
 
 
     public static void main(String[] args) {
@@ -94,6 +96,7 @@ public class window extends Application {
         btn5.setTextFill(Color.web("#F2F5A9"));
         btn5.setMaxSize(400, 300);
         btn5.setStyle("-fx-background-color: #B43104");
+        btn5.setDisable(true);
 
         //
 
@@ -120,11 +123,16 @@ public class window extends Application {
 
 
 
+        btn1.setOnAction(e->{
+            body.getChildren().clear();
+            body.getChildren().add(table.addTable());
+        });
         btn2.setOnAction(
 
                 e->{
+                    body.getChildren().clear();
                     body.getChildren().add(ajouter.addClient());
-                    window.setScene(new Scene(body));
+                    //window.setScene(new Scene(body));
                     //btn2.setDisable(true);
                 }
 
@@ -134,8 +142,9 @@ public class window extends Application {
         btn3.setOnAction(
 
                 e->{
+                    body.getChildren().clear();
                     body.getChildren().add(ajouter.addMedecin());
-                    // window.setScene(new Scene(body));
+                    //window.setScene(new Scene(body));
                 }
 
         );
@@ -161,9 +170,6 @@ public class window extends Application {
 
 
 
-
-
-
         root.setTop(hbox);
         root.setCenter(body);
         root.setLeft(vbox);
@@ -172,9 +178,9 @@ public class window extends Application {
         FileInputStream input = new FileInputStream("src/logo.png");
         Image image = new Image(input);
         window.getIcons().add(image);
-        Scene scene = new Scene(root,900,500);
+        Scene scene = new Scene(root,1200,600);
         window.setScene(scene);
-        window.setFullScreen(true);
+        //window.setFullScreen(true);
         window.show();
 
     }
