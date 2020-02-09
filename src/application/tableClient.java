@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
-public class table {
+public class tableClient {
 
     private static TableView<clients> table;
     private static  HBox hbox;

@@ -1,33 +1,25 @@
 package application;
 
-import com.sun.javafx.util.TempState;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import javafx.scene.control.TextField;
+import java.sql.SQLException;
 
 public class window extends Application {
     Stage window ;
     private static add ajouter;
-    private  static  table table;
+    private  static tableClient table;
+    private static tableMedecin tablemedecin;
 
 
     public static void main(String[] args) {
@@ -147,6 +139,17 @@ public class window extends Application {
                     //window.setScene(new Scene(body));
                 }
 
+        );
+        btn4.setOnAction(
+                e-> {
+                body.getChildren().clear();
+                    try {
+                        body.getChildren().add(tablemedecin.addTable());
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                    //window.setScene(new Scene(body));
+            }
         );
 
 
