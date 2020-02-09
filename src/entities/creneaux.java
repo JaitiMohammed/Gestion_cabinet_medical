@@ -4,26 +4,30 @@ import java.io.Serializable;
 
 public class creneaux implements Serializable {
     private  int id ;
-    private int version;
     private int hdebut;
     private int mdebut;
     private int hfin;
     private int mfin;
-    private medecins medecin; //
-    private clients client; //
+    private int idMedecin ;
+    //private medecins medecin; //
+   // private clients client; //
 
 
 
     public creneaux() {
     }
 
-    public creneaux(int version, int hdebut, int mdebut, int hfin, int mfin, medecins medecin) {
-        this.version = version;
+    public creneaux(int idMedecin , int hdebut, int mdebut, int hfin, int mfin) {
         this.hdebut = hdebut;
         this.mdebut = mdebut;
         this.hfin = hfin;
         this.mfin = mfin;
-        this.medecin = medecin;
+        this.idMedecin=idMedecin;
+    }
+
+    public String toString() {
+        return "[" + id + "," + idMedecin + "," + hdebut + ":" + mdebut + ","
+                + hfin + ":" + mfin + "]";
     }
 
     public int getId() {
@@ -32,14 +36,6 @@ public class creneaux implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
     }
 
     public int getHdebut() {
@@ -74,11 +70,11 @@ public class creneaux implements Serializable {
         this.mfin = mfin;
     }
 
-    public medecins getMedecin() {
-        return medecin;
+    public int getIdMedecin() {
+        return idMedecin;
     }
 
-    public void setMedecin(medecins medecin) {
-        this.medecin = medecin;
+    public void setIdMedecin(int idMedecin) {
+        this.idMedecin = idMedecin;
     }
 }

@@ -1,22 +1,30 @@
 package entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class rv implements Serializable {
     private int id;
     private Date jour;
-    private creneaux creneaux;
-    private clients client;
+    private int idCreneaux;
+    private int idClient;
 
     public rv() {
     }
 
-    public rv(Date jour, creneaux creneaux, clients client) {
+    public rv(int id , Date jour, int idCreneaux, int idClient) {
         this.jour = jour;
-        this.creneaux = creneaux;
-        this.client = client;
+        this.idClient=idClient;
+        this.idCreneaux=idCreneaux;
     }
+
+    // toString
+     public String toString() {
+         return "[" + id + ","
+                 + new SimpleDateFormat("dd/MM/yyyy").format(jour)
+                 + "," + idClient + "," + idCreneaux + "]";
+     }
 
     public int getId() {
         return id;
@@ -34,19 +42,19 @@ public class rv implements Serializable {
         this.jour = jour;
     }
 
-    public creneaux getCreenaux() {
-        return creneaux;
+    public int getIdCreneaux() {
+        return idCreneaux;
     }
 
-    public void setCreneaux(creneaux creneaux) {
-        this.creneaux = creneaux;
+    public void setIdCreneaux(int idCreneaux) {
+        this.idCreneaux = idCreneaux;
     }
 
-    public clients getClient() {
-        return client;
+    public int getIdClient() {
+        return idClient;
     }
 
-    public void setClient(clients client) {
-        this.client = client;
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
     }
 }
